@@ -1,0 +1,29 @@
+{
+  "name": "wow-drops",
+  "version": "1.0.0",
+  "description": "A Node.js application for filtering item drops.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "sqlite3",
+    "filter",
+    "items"
+  ],
+  "author": "rebosar",
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

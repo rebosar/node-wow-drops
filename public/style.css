@@ -1,0 +1,204 @@
+/* Light Mode (Default) */
+:root {
+    --bg-color: #eeeeee; /* Warm beige background */
+    --container-bg: #ffffff; /* Clean white background for the container */
+    --text-color: #1E2A5E; /* Dark navy blue text color */
+    --label-color: #55679C; /* Deep calming blue for labels */
+    --input-bg: #ffffff; /* White background for inputs and selects */
+    --input-border: #7C93C3; /* Muted teal border */
+    --button-bg: #55679C; /* Deep blue for the submit button */
+    --button-hover-bg: #1E2A5E; /* Dark navy blue on hover */
+    --table-header-bg: #55679C; /* Deep blue header background */
+    --table-header-text: #ffffff; /* White text in headers */
+    --table-row-even: #D8D7D5; /* Warm beige for even rows */
+    --table-hover: #7C93C3; /* Muted teal on hover */
+    --armor-bg: #e7e7e7; /* Warm beige background for armor buttons */
+    --armor-hover-bg: #D8D7D5; /* Warm beige background on hover for armor buttons */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --bg-color: #1b1b1b; /* Very dark gray for a smooth, muted background */
+    --container-bg: #2a2a2a; /* Slightly lighter gray for contrast against the background */
+    --text-color: #c7c7c7; /* Light gray for readability against the dark background */
+    --label-color: #b8a68a; /* Warm beige-taupe for labels to give a soft contrast */
+    --input-bg: #2e2e2e; /* Dark gray for inputs to blend in smoothly */
+    --input-border: #5e5e5e; /* Neutral gray for input borders */
+    --button-bg: #55679C; /* Soft, muted purple for buttons */
+    --button-hover-bg: #1E2A5E;; /* Lighter, pastel purple for hover states */
+    --table-header-bg: #55679C; /* Dark gray for table header background */
+    --table-header-text: #e6e6e6; /* Off-white for table header text */
+    --table-row-even: #333333; /* Slightly lighter gray for even rows */
+    --table-hover: #5a5a5a; /* Silver-gray on hover for table rows */
+    --armor-bg: #b4b4b4; /* Muted dark purple for armor buttons */
+    --armor-hover-bg: #D8D7D5; /* Soft purple on hover for armor buttons */
+}
+
+
+/* Apply colors using variables */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    padding: 20px;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--container-bg);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: var(--label-color);
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.armor-button, .season-button {
+    padding: 10px 20px;
+    border: 2px solid var(--input-border);
+    border-radius: 5px;
+    background-color: var(--armor-bg);
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.armor-button:hover, .season-button:hover {
+    background-color: var(--armor-hover-bg);
+    border-color: var(--input-border);
+}
+
+.armor-button.selected, .season-button.selected {
+    background-color: var(--button-bg);
+    color: var(--table-header-text);
+    border-color: var(--button-bg);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-bg);
+    color: var(--table-header-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--button-hover-bg);
+}
+
+#resultsTable {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#resultsTable th, #resultsTable td {
+    padding: 12px 15px;
+    border: 2px solid var(--input-border);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#resultsTable th {
+    background-color: var(--table-header-bg);
+    color: var(--table-header-text);
+    font-weight: bold;
+}
+
+#resultsTable tr:nth-child(even) {
+    background-color: var(--table-row-even);
+}
+
+#resultsTable tr:hover {
+    background-color: var(--table-hover);
+}
+
+#resultsTable td {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* Dropdown styling */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+select:focus {
+    border-color: var(--button-hover-bg);
+    outline: none;
+}
+
+header {
+    position: absolute;
+    padding: 20px;
+    top: 10px;
+    right: 10px;
+}
