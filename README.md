@@ -2,6 +2,8 @@
 
 This project is a web-based filter tool designed to help users search for World of Warcraft (WoW) items based on various attributes like armor type, item slot, stats (e.g., stamina, strength, intellect), and seasonal content. The tool is built using Node.js, Express.js, and an SQLite database.
 
+Demo: https://wow.rebosar.com
+
 ## Features
 - **Filter by Attributes**: Users can filter items based on stats such as Strength, Intellect, Agility, Stamina, and more.
 - **Armor Type & Slot Selection**: Filter items by armor type (Cloth, Leather, Mail, Plate) and specific slots (Head, Neck, Back, etc.).
