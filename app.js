@@ -4,16 +4,10 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Open SQLite database
 const db = new sqlite3.Database("./wow-drops.db");
 
-//Serve Pulbic
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Middleware to parse JSON requests
 app.use(express.json());
-
-// Route to filter the data
 app.get('/item', (req, res) => {
     const {armor_type_id, strength, stamina, intellect, agility, critical_strike, haste, mastery, versatility, slot_id, season} = req.query;
 

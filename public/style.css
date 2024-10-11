@@ -1,39 +1,38 @@
 /* Light Mode (Default) */
 :root {
-    --bg-color: #eeeeee; /* Warm beige background */
-    --container-bg: #ffffff; /* Clean white background for the container */
-    --text-color: #1E2A5E; /* Dark navy blue text color */
-    --label-color: #55679C; /* Deep calming blue for labels */
-    --input-bg: #ffffff; /* White background for inputs and selects */
-    --input-border: #7C93C3; /* Muted teal border */
-    --button-bg: #55679C; /* Deep blue for the submit button */
-    --button-hover-bg: #1E2A5E; /* Dark navy blue on hover */
-    --table-header-bg: #55679C; /* Deep blue header background */
-    --table-header-text: #ffffff; /* White text in headers */
-    --table-row-even: #D8D7D5; /* Warm beige for even rows */
-    --table-hover: #7C93C3; /* Muted teal on hover */
-    --armor-bg: #e7e7e7; /* Warm beige background for armor buttons */
-    --armor-hover-bg: #D8D7D5; /* Warm beige background on hover for armor buttons */
+    --bg-color: #eeeeee;
+    --container-bg: #ffffff;
+    --text-color: #1E2A5E;
+    --label-color: #55679C;
+    --input-bg: #ffffff;
+    --input-border: #7C93C3;
+    --button-bg: #55679C;
+    --button-hover-bg: #1E2A5E;
+    --table-header-bg: #55679C;
+    --table-header-text: #ffffff;
+    --table-row-even: #D8D7D5;
+    --table-hover: #7C93C3;
+    --armor-bg: #e7e7e7;
+    --armor-hover-bg: #D8D7D5;
 }
 
 /* Dark Mode */
 body.dark-mode {
-    --bg-color: #1b1b1b; /* Very dark gray for a smooth, muted background */
-    --container-bg: #2a2a2a; /* Slightly lighter gray for contrast against the background */
-    --text-color: #c7c7c7; /* Light gray for readability against the dark background */
-    --label-color: #b8a68a; /* Warm beige-taupe for labels to give a soft contrast */
-    --input-bg: #2e2e2e; /* Dark gray for inputs to blend in smoothly */
-    --input-border: #5e5e5e; /* Neutral gray for input borders */
-    --button-bg: #55679C; /* Soft, muted purple for buttons */
-    --button-hover-bg: #1E2A5E;; /* Lighter, pastel purple for hover states */
-    --table-header-bg: #55679C; /* Dark gray for table header background */
-    --table-header-text: #e6e6e6; /* Off-white for table header text */
-    --table-row-even: #333333; /* Slightly lighter gray for even rows */
-    --table-hover: #5a5a5a; /* Silver-gray on hover for table rows */
-    --armor-bg: #b4b4b4; /* Muted dark purple for armor buttons */
-    --armor-hover-bg: #D8D7D5; /* Soft purple on hover for armor buttons */
+    --bg-color: #1b1b1b;
+    --container-bg: #2a2a2a;
+    --text-color: #c7c7c7;
+    --label-color: #b8a68a;
+    --input-bg: #2e2e2e;
+    --input-border: #5e5e5e;
+    --button-bg: #55679C;
+    --button-hover-bg: #1E2A5E;;
+    --table-header-bg: #55679C;
+    --table-header-text: #e6e6e6;
+    --table-row-even: #333333;
+    --table-hover: #5a5a5a;
+    --armor-bg: #b4b4b4;
+    --armor-hover-bg: #D8D7D5;
 }
-
 
 /* Apply colors using variables */
 body {
