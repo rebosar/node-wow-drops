@@ -1,20 +1,15 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const morgan = require('morgan'); // HTTP request logger
 const app = express();
 const port = 3000;
 
 const db = new sqlite3.Database("./wow-drops.db");
 
-// Middleware to log HTTP requests
-app.use(morgan('combined'));
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
-
 app.get('/item', (req, res) => {
-    const { armor_type_id, strength, stamina, intellect, agility, critical_strike, haste, mastery, versatility, slot_id, season } = req.query;
+    const {armor_type_id, strength, stamina, intellect, agility, critical_strike, haste, mastery, versatility, slot_id, season} = req.query;
 
     let query = `
     SELECT
@@ -29,7 +24,7 @@ app.get('/item', (req, res) => {
     LEFT JOIN slot s ON s.id = i.slot_id
     LEFT JOIN weapon_type w ON w.id = i.weapon_type_id
     WHERE 1=1
-    `.replace(/\s+/g, ' ').trim();
+    `;
     let params = [];
 
     if (armor_type_id) {
@@ -75,15 +70,14 @@ app.get('/item', (req, res) => {
 
     if (season) {
         query += ' AND d.season = ?';
-        params.push(season);
+        params.push(season)
     }
 
     db.all(query, params, (err, rows) => {
         if (err) {
-            console.error("Database error:", err.message);
+            console.log(err.message);
             return res.status(500).json({ error: err.message });
         }
-        //console.log("Query successful, returned rows:", rows.length);
         res.json({ results: rows });
     });
 });
