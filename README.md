@@ -11,6 +11,11 @@ Demo: https://wow.rebosar.com
 - **Results Table**: Displays the filtered results with clickable rows that open the corresponding WoWhead page for detailed item information.
 - **Dark Mode Toggle**: Includes a toggle for switching between light and dark modes, with the preference saved in `localStorage`.
 
+## Known Issues
+- Mythic 0 Filter not working.
+- Some items may be missing or incorrect.
+
+
 ## Prerequisites
 - **Node.js** (v14 or above)
 - **SQLite3** (Database containing WoW items, `wow-drops.db`)
@@ -127,3 +132,4 @@ The dark mode toggle allows users to switch between light and dark themes, and t
 - **SQLite** for database management.
 - **HTML/CSS/JavaScript** for the frontend.
 - **Fetch API** for handling requests to the server.
+
