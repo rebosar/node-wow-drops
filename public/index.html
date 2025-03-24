@@ -1,92 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WoW TWW Item Filter</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<header>
-    <button id="toggleDarkMode">Toggle Dark Mode</button>
-</header>
-<body>
-    <div class="container">
-        <h1>Filter Items</h1>
-        <form id="filterForm">
-            <div class="form-group">
-                <label for="armor_type">Armor Type:</label>
-                <div class="button-group" id="armor_type">
-                    <button type="button" class="armor-button" data-value="1">Cloth</button>
-                    <button type="button" class="armor-button" data-value="2">Leather</button>
-                    <button type="button" class="armor-button" data-value="3">Mail</button>
-                    <button type="button" class="armor-button" data-value="4">Plate</button>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WoW TWW Item Filter</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <header>
+        <button id="toggleDarkMode">Toggle Dark Mode</button>
+    </header>
+
+    <body>
+        <div class="container">
+            <h1>Filter Items</h1>
+            <form id="filterForm">
+                <div class="form-group">
+                    <label for="armor_type">Armor Type:</label>
+                    <div class="button-group" id="armor_type">
+                        <button type="button" class="armor-button" data-value="1">Cloth</button>
+                        <button type="button" class="armor-button" data-value="2">Leather</button>
+                        <button type="button" class="armor-button" data-value="3">Mail</button>
+                        <button type="button" class="armor-button" data-value="4">Plate</button>
+                    </div>
+                    <input type="hidden" id="armor_type_id" name="armor_type_id">
                 </div>
-                <input type="hidden" id="armor_type_id" name="armor_type_id">
-            </div>
 
-            <div class="form-group">
-                <label for="slot_id">Armor / Weapon Slot:</label>
-                <select id="slot_id" name="slot_id">
-                    <option value="-1">All Slots</option>
-                    <option value="1">Head</option>
-                    <option value="2">Neck</option>
-                    <option value="3">Back</option>
-                    <option value="4">Shoulder</option>
-                    <option value="5">Chest</option>
-                    <option value="6">Wrist</option>
-                    <option value="7">Hands</option>
-                    <option value="8">Waist</option>
-                    <option value="9">Legs</option>
-                    <option value="10">Feet</option>
-                    <option value="11">Finger</option>
-                    <option value="12">Trinket</option>
-                    <option value="13">One-Hand</option>
-                    <option value="14">Off-Hand</option>
-                    <option value="15">Two-Hand</option>
-                    <option value="16">Shield</option>
-                    <option value="17">Main Hand</option>
-                    <option value="18">Ranged</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Attributes:</label>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" id="stamina" name="stamina"> Stamina</label>
-                    <label><input type="checkbox" id="strength" name="strength"> Strength</label>
-                    <label><input type="checkbox" id="intellect" name="intellect"> Intellect</label>
-                    <label><input type="checkbox" id="agility" name="agility"> Agility</label>
-                    <label><input type="checkbox" id="critical_strike" name="critical_strike"> Critical Strike</label>
-                    <label><input type="checkbox" id="haste" name="haste"> Haste</label>
-                    <label><input type="checkbox" id="mastery" name="mastery"> Mastery</label>
-                    <label><input type="checkbox" id="versatility" name="versatility"> Versatility</label>
+                <div class="form-group">
+                    <label for="slot_id">Armor / Weapon Slot:</label>
+                    <select id="slot_id" name="slot_id">
+                        <option value="-1">All Slots</option>
+                        <option value="1">Head</option>
+                        <option value="2">Neck</option>
+                        <option value="3">Back</option>
+                        <option value="4">Shoulder</option>
+                        <option value="5">Chest</option>
+                        <option value="6">Wrist</option>
+                        <option value="7">Hands</option>
+                        <option value="8">Waist</option>
+                        <option value="9">Legs</option>
+                        <option value="10">Feet</option>
+                        <option value="11">Finger</option>
+                        <option value="12">Trinket</option>
+                        <option value="13">One-Hand</option>
+                        <option value="14">Off-Hand</option>
+                        <option value="15">Two-Hand</option>
+                        <option value="16">Shield</option>
+                        <option value="17">Main Hand</option>
+                        <option value="18">Ranged</option>
+                    </select>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="season">Season:</label>
-                <div class="button-group" id="season">
-                    <button type="button" class="season-button" data-value="0">Mythic 0</button>
-                    <button type="button" class="season-button" data-value="2">TWW Season 2</button>
+
+                <div class="form-group">
+                    <label>Attributes (Check if True):</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" id="stamina" name="stamina"> Stamina</label>
+                        <label><input type="checkbox" id="strength" name="strength"> Strength</label>
+                        <label><input type="checkbox" id="intellect" name="intellect"> Intellect</label>
+                        <label><input type="checkbox" id="agility" name="agility"> Agility</label>
+                        <label><input type="checkbox" id="critical_strike" name="critical_strike"> Critical Strike</label>
+                        <label><input type="checkbox" id="haste" name="haste"> Haste</label>
+                        <label><input type="checkbox" id="mastery" name="mastery"> Mastery</label>
+                        <label><input type="checkbox" id="versatility" name="versatility"> Versatility</label>
+                    </div>
                 </div>
-            </div>
 
-            <button type="submit">Search</button>
-        </form>
+                <div class="form-group">
+                    <label for="season">Season:</label>
+                    <div class="button-group" id="season">
+                        <button type="button" class="season-button" data-value="0">Mythic 0</button>
+                        <button type="button" class="season-button" data-value="2">TWW Season 2</button>
+                    </div>
+                </div>
 
-        <!-- Table to display results -->
-        <table id="resultsTable">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Dungeon</th>
-                    <th>Slot</th>
-                    <th>Weapon Type</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    
-    <script src="script.js"></script>
-</body>
-</html>
+                <button type="submit">Filter</button>
+            </form>
+
+            <!-- Table to display results -->
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Dungeon</th>
+                        <th>Slot</th>
+                        <th>Weapon Type</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+    </html>
