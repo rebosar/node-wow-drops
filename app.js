@@ -9,7 +9,7 @@ const db = new sqlite3.Database("./wow-drops.db");
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.get('/item', (req, res) => {
-    const {armor_type_id, strength, stamina, intellect, agility, critical_strike, haste, mastery, versatility, slot_id, season} = req.query;
+    const {armor_type_id, strength, stamina, intellect, agility, critical_strike, haste, mastery, versatility, slot_id, season, isMythic0} = req.query;
 
     let query = `
     SELECT
@@ -68,9 +68,15 @@ app.get('/item', (req, res) => {
         params.push(versatility);
     }
 
-    if (season) {
+    if (season != 0) {
         query += ' AND d.season = ?';
         params.push(season)
+    }
+
+    if (isMythic0)
+    {
+        query += ' AND d.isMythic0 = ?';
+        params.push(isMythic0)
     }
 
     db.all(query, params, (err, rows) => {
