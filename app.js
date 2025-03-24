@@ -68,14 +68,14 @@ app.get('/item', (req, res) => {
         params.push(versatility);
     }
 
-    if (season != 0) {
+    if (season) {
         query += ' AND d.season = ?';
         params.push(season)
     }
 
     if (isMythic0)
     {
-        query += ' AND d.isMythic0 = ?';
+        query += ' AND d.isMythic0 = ?'
         params.push(isMythic0)
     }
 

@@ -57,15 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
             params.slot_id = slotId;
         }
 
-        if (season != 0) {
-            params.season = season;
+        if (season) {
+            if (season == 0) {
+                params.isMythic0 = 1;
+            } else {
+                params.season = season;
+            }
         }
         
-        if (season == 0)
-        {
-            params.isMythic0 = 1;
-        }
-
         if (document.getElementById('stamina').checked) {
             params.stamina = 1;
         }
