@@ -1,20 +1,30 @@
-name: Docker Image CI
+name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
-
-  build:
-
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag rebosar/node-wow-drops:latest
-    - name: Push the Docker image 
-      run: docker push rebosar/node-wow-drops:latest
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and tag Docker image
+        run: |
+          docker build -t rebosar/node-wow-drops:latest .
+          docker tag rebosar/node-wow-drops:latest rebosar/node-wow-drops:${{ github.sha }}
+
+      - name: Push Docker image
+        run: |
+          docker push rebosar/node-wow-drops:latest
+          docker push rebosar/node-wow-drops:${{ github.sha }}
