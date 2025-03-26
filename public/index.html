@@ -1,5 +1,5 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
 
         <script>const whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: true, iconSize: 'small'};</script>
         <script src="https://wow.zamimg.com/js/tooltips.js"></script>
+        <script src="script.js"></script>
     </head>
     <header>
         <button id="toggleDarkMode">Toggle Dark Mode</button>
@@ -55,7 +56,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Attributes (Check if True):</label>
+                    <label>Attributes:</label>
                     <div class="checkbox-group">
                         <label><input type="checkbox" id="stamina" name="stamina"> Stamina</label>
                         <label><input type="checkbox" id="strength" name="strength"> Strength</label>
@@ -68,13 +69,12 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="season">Season:</label>
                     <div class="button-group" id="season">
-                        <button type="button" class="season-button" data-value="0">Mythic 0</button>
                         <button type="button" class="season-button" data-value="2">TWW Season 2</button>
                     </div>
-                </div>
+                </div> -->
 
                 <button type="submit">Filter</button>
             </form>
@@ -92,7 +92,5 @@
                 <tbody></tbody>
             </table>
         </div>
-        
-        <script src="script.js"></script>
     </body>
-    </html>
+</html>

@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const armorTypeId = document.getElementById('armor_type_id').value;
         const slotId = document.getElementById('slot_id').value;
-        const season = document.getElementById('season').value;
+        const season = 2;
 
         let params = {};
 
@@ -58,11 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (season) {
-            if (season == 0) {
-                params.isMythic0 = 1;
-            } else {
-                params.season = season;
-            }
+            params.season = season;
         }
         
         if (document.getElementById('stamina').checked) {
@@ -91,6 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const queryString = new URLSearchParams(params).toString();
+        const tooltip_bonusChampion1 = 11977;
+        const tooltip_bonusMythic = 9635;
+        const tooltip_ilvl = 636;
+        const tooltipBuilder = `bonus=${tooltip_bonusChampion1}:${tooltip_bonusMythic}&ilvl=${tooltip_ilvl}`;
 
         fetch(`/item?${queryString}`)
             .then(response => response.json())
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const itemLink = document.createElement('a');
                         itemLink.href = `https://wowhead.com/item=${item.ItemID}`;
                         itemLink.target = '_blank';
-                        itemLink.setAttribute('data-wowhead', `item=${item.ItemID}&bonus=6629`);
+                        itemLink.setAttribute('data-wowhead', `item=${item.ItemID}&${tooltipBuilder}`);
                     
                         // Add an image to show the Wowhead icon
                         const itemIcon = document.createElement('img');
