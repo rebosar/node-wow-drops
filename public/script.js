@@ -102,35 +102,60 @@ document.addEventListener('DOMContentLoaded', () => {
                     data.results.forEach(item => {
                         const row = document.createElement('tr');
                         row.style.cursor = 'pointer'; // Make the cursor a pointer to indicate it's clickable
-            
+                    
                         // Set the row click event to redirect to the URL
                         row.addEventListener('click', () => {
                             window.open(`https://wowhead.com/item=${item.ItemID}`, '_blank');
-                        })
-            
-                        // Create a cell for the item
+                        });
+                    
                         const itemCell = document.createElement('td');
-                        itemCell.textContent = item.Item;
+                    
+                        // Create the item link
+                        const itemLink = document.createElement('a');
+                        itemLink.href = `https://wowhead.com/item=${item.ItemID}`;
+                        itemLink.target = '_blank';
+                        itemLink.setAttribute('data-wowhead', `item=${item.ItemID}&bonus=6629`);
+                    
+                        // Add an image to show the Wowhead icon
+                        const itemIcon = document.createElement('img');
+                        itemIcon.src = `https://wow.zamimg.com/images/wow/icons/large/${item.Icon}.jpg`; // Replace `item.Icon` with actual icon data if available
+                        itemIcon.alt = item.Item;
+                        itemIcon.style.width = '24px';
+                        itemIcon.style.height = '24px';
+                        itemIcon.style.marginRight = '5px';
+                        itemIcon.style.verticalAlign = 'middle';
+                    
+                        // Append the icon and text inside the link
+                        itemLink.appendChild(itemIcon);
+                        itemLink.appendChild(document.createTextNode(item.Item));
+                    
+                        itemCell.appendChild(itemLink);
                         row.appendChild(itemCell);
-            
+                    
                         // Create a cell for Dungeon
                         const dungeonCell = document.createElement('td');
                         dungeonCell.textContent = item.Dungeon;
                         row.appendChild(dungeonCell);
-            
+                    
                         // Create a cell for Slot
                         const slotCell = document.createElement('td');
                         slotCell.textContent = item.Slot;
                         row.appendChild(slotCell);
-            
+                    
                         // Create a cell for Weapon Type
                         const weaponTypeCell = document.createElement('td');
                         weaponTypeCell.textContent = item['Weapon Type'];
                         row.appendChild(weaponTypeCell);
-            
+                    
                         // Append the row to the table body
                         tableBody.appendChild(row);
                     });
+                    
+                    // Reinitialize Wowhead tooltips after adding new rows
+                    if (window.$WowheadPower) {
+                        window.$WowheadPower.refreshLinks();
+                    }
+                    
                 } else {
                     const row = document.createElement('tr');
                     const noDataCell = document.createElement('td');
