@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tooltip_bonusChampion1 = 11977;
         const tooltip_bonusMythic = 9635;
         const tooltip_ilvl = 636;
+        const tooltipBuilder = `bonus=${tooltip_bonusChampion1}:${tooltip_bonusMythic}&ilvl=${tooltip_ilvl}`;
 
         fetch(`/item?${queryString}`)
             .then(response => response.json())
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const itemLink = document.createElement('a');
                         itemLink.href = `https://wowhead.com/item=${item.ItemID}`;
                         itemLink.target = '_blank';
-                        itemLink.setAttribute('data-wowhead', `item=${item.ItemID}&bonus=${tooltip_bonusChampion1}:${tooltip_bonusMythic}&ilvl=${tooltip_ilvl}`);
+                        itemLink.setAttribute('data-wowhead', `item=${item.ItemID}&${tooltipBuilder}`);
                     
                         // Add an image to show the Wowhead icon
                         const itemIcon = document.createElement('img');
