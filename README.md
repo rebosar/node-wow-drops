@@ -12,7 +12,7 @@ Demo: https://wow.rebosar.com
 - **Dark Mode Toggle**: Includes a toggle for switching between light and dark modes, with the preference saved in `localStorage`.
 
 ## Known Issues
-- Mythic 0 Filter not working.
+- Dark Mode doesn't function properly
 - Some items may be missing or incorrect.
 
 
@@ -114,7 +114,6 @@ Fetches filtered items based on the following query parameters:
 | `haste`            | Boolean | Whether the item has Haste (1 or 0)           |
 | `mastery`          | Boolean | Whether the item has Mastery (1 or 0)         |
 | `versatility`      | Boolean | Whether the item has Versatility (1 or 0)     |
-| `season`           | Number | The season (0 for Mythic 0, 1 for Season 1)    |
 
 ## Frontend Structure
 
@@ -124,8 +123,8 @@ The frontend form allows users to select armor types, slots, and attributes usin
 - **Slot**: The item's slot (e.g., Head, Chest, etc.).
 - **Weapon Type**: The type of weapon (if applicable).
 
-### Dark Mode
-The dark mode toggle allows users to switch between light and dark themes, and the setting is saved using `localStorage`.
+### Dark Mode (Not Currently Working)
+The dark mode toggle allows users to switch between light and dark themes, and the setting is saved using `localStorage`. 
 
 ## Technologies Used
 - **Node.js** with Express for backend and routing.
