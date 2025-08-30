@@ -19,26 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
-    document.querySelectorAll('.season-button').forEach(button => {
-        button.addEventListener('click', function () {
-            // Check if the button is already selected
-            const isSelected = this.classList.contains('selected');
-
-            // Remove the 'selected' class from all armor buttons
-            document.querySelectorAll('.season-button').forEach(btn => btn.classList.remove('selected'));
-            
-            // If the clicked button was not already selected, add the 'selected' class
-            if (!isSelected) {
-                this.classList.add('selected');
-                // Update hidden input field with the selected armor type value
-                document.getElementById('season').value = this.getAttribute('data-value');
-            } else {
-                // If the button was already selected, clear the hidden input field
-                document.getElementById('season').value = '';
-            }
-        });
-    });
 
     // Handle form submission
     document.getElementById('filterForm').addEventListener('submit', function (e) {
@@ -46,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const armorTypeId = document.getElementById('armor_type_id').value;
         const slotId = document.getElementById('slot_id').value;
-        const season = 2;
 
         let params = {};
 
@@ -55,10 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (slotId != -1) {
             params.slot_id = slotId;
-        }
-
-        if (season) {
-            params.season = season;
         }
         
         if (document.getElementById('stamina').checked) {
@@ -89,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const queryString = new URLSearchParams(params).toString();
         const tooltip_bonusChampion1 = 11977;
         const tooltip_bonusMythic = 9635;
-        const tooltip_ilvl = 636;
+        const tooltip_ilvl = 681;
         const tooltipBuilder = `bonus=${tooltip_bonusChampion1}:${tooltip_bonusMythic}&ilvl=${tooltip_ilvl}`;
 
         fetch(`/item?${queryString}`)

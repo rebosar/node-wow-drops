@@ -9,7 +9,7 @@ const db = new sqlite3.Database("./wow-drops.db");
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.get('/item', (req, res) => {
-    const {armor_type_id, strength, stamina, intellect, agility, critical_strike, haste, mastery, versatility, slot_id, season, isMythic0} = req.query;
+    const {armor_type_id, strength, stamina, intellect, agility, critical_strike, haste, mastery, versatility, slot_id} = req.query;
 
     let query = `
     SELECT
@@ -17,13 +17,12 @@ app.get('/item', (req, res) => {
         i.item_name AS "Item", 
         d.dungeon_name AS "Dungeon",
         s.slot_name AS "Slot",
-        w.type AS "Weapon Type",
-        d.season AS "Season"
+        w.type AS "Weapon Type"
     FROM item i 
     LEFT JOIN dungeon d ON d.id = i.dungeon_id 
     LEFT JOIN slot s ON s.id = i.slot_id
     LEFT JOIN weapon_type w ON w.id = i.weapon_type_id
-    WHERE 1=1
+    WHERE d.isMythicPlus = 1
     `;
     let params = [];
 
@@ -66,17 +65,6 @@ app.get('/item', (req, res) => {
     if (versatility) {
         query += ' AND versatility = ?';
         params.push(versatility);
-    }
-
-    if (season) {
-        query += ' AND d.season = ?';
-        params.push(season)
-    }
-
-    if (isMythic0)
-    {
-        query += ' AND d.isMythic0 = ?'
-        params.push(isMythic0)
     }
 
     db.all(query, params, (err, rows) => {
